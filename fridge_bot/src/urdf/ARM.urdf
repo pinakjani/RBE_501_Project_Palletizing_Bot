@@ -1,0 +1,669 @@
+<?xml version="1.0" encoding="utf-8"?>
+<!-- This URDF was automatically created by SolidWorks to URDF Exporter! Originally created by Stephen Brawner (brawner@gmail.com) 
+     Commit Version: 1.6.0-4-g7f85cfe  Build Version: 1.6.7995.38578
+     For more information, please see http://wiki.ros.org/sw_urdf_exporter -->
+<robot
+  name="beer-arm">
+  <link
+    name="base_link">
+    <inertial>
+      <origin
+        xyz="0.065744341564924 0.0494910882181169 -0.045216580467112"
+        rpy="0 0 0" />
+      <mass
+        value="0.207046380810351" />
+      <inertia
+        ixx="0.000296100160478882"
+        ixy="4.14810054064923E-07"
+        ixz="2.9650972706571E-09"
+        iyy="0.000248571256331813"
+        iyz="2.58760118757551E-11"
+        izz="0.000510587496763238" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/base_link.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/base_link.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <link name="world" />
+
+  <joint name="world_to_base_link=" type="fixed">
+    <parent link="world"/>
+    <child link="base_link"/>
+    <origin
+        xyz="0 0 .95"
+        rpy="-1.57 0 0" />
+  </joint>
+  <link
+    name="Turning_base">
+    <inertial>
+      <origin
+        xyz="-0.0267697026327348 0.00488148698796461 0.0222183347728628"
+        rpy="0 0 0" />
+      <mass
+        value="0.19237125582213" />
+      <inertia
+        ixx="0.000135901413995399"
+        ixy="-1.33820761853295E-06"
+        ixz="2.84315818360693E-06"
+        iyy="0.000156555561267971"
+        iyz="2.6996128156746E-06"
+        izz="0.000197919660234674" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Turning_base.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Turning_base.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J1"
+    type="revolute">
+    <origin
+      xyz="0.06605 0.032302 0.014542"
+      rpy="1.5708 -0.0040186 0" />
+    <parent
+      link="base_link" />
+    <child
+      link="Turning_base" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="Lower_Backlink">
+    <inertial>
+      <origin
+        xyz="0.0414635494994407 3.46944695195361E-18 0.00499999999999998"
+        rpy="0 0 0" />
+      <mass
+        value="0.0193744467859455" />
+      <inertia
+        ixx="8.00416835228506E-07"
+        ixy="-9.52912065661088E-22"
+        ixz="4.55815036554347E-21"
+        iyy="1.54913654040111E-05"
+        iyz="1.31132591327248E-22"
+        izz="1.59688747928072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Lower_Backlink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Lower_Backlink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J2"
+    type="continuous">
+    <origin
+      xyz="-0.0225 -0.022855 0.065355"
+      rpy="-1.5708 -1.046 1.5708" />
+    <parent
+      link="Turning_base" />
+    <child
+      link="Lower_Backlink" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link1">
+    <inertial>
+      <origin
+        xyz="-5.21804821573824E-15 0.00500000000000492 -0.00999999999999942"
+        rpy="0 0 0" />
+      <mass
+        value="0.085573794051045" />
+      <inertia
+        ixx="0.000328606447348668"
+        ixy="1.45960717470861E-17"
+        ixz="3.74845624985551E-22"
+        iyy="3.53584860057504E-06"
+        iyz="-2.1588614126044E-16"
+        izz="0.000330716066048393" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Link1.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Link1.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J3"
+    type="revolute">
+    <origin
+      xyz="-0.0275 0.058501 0.11312"
+      rpy="1.5708 -0.50547 -1.5708" />
+    <parent
+      link="Turning_base" />
+    <child
+      link="Link1" />
+    <axis
+      xyz="0 0 -1" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="triangle">
+    <inertial>
+      <origin
+        xyz="0.0128671162531901 0.0149668569116931 0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.0191246861766035" />
+      <inertia
+        ixx="5.62289539865076E-06"
+        ixy="2.73395813990835E-06"
+        ixz="-1.63798820454671E-21"
+        iyy="4.65318566936926E-06"
+        iyz="1.77309574594121E-21"
+        izz="9.95733629840997E-06" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/triangle.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/triangle.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J4"
+    type="continuous">
+    <origin
+      xyz="0 0.105 -0.015"
+      rpy="0 0 -0.13866" />
+    <parent
+      link="Link1" />
+    <child
+      link="triangle" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Upper_backlink">
+    <inertial>
+      <origin
+        xyz="0.0414635494994406 1.07552855510562E-15 0.005"
+        rpy="0 0 0" />
+      <mass
+        value="0.0193744467859455" />
+      <inertia
+        ixx="8.00416835228508E-07"
+        ixy="4.2351647362715E-22"
+        ixz="2.85427484424913E-21"
+        iyy="1.54913654040111E-05"
+        iyz="-5.92136022624789E-23"
+        izz="1.59688747928072E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Upper_backlink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Upper_backlink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J5"
+    type="continuous">
+    <origin
+      xyz="0.045 0 0.02"
+      rpy="-3.1416 0 -1.4128" />
+    <parent
+      link="triangle" />
+    <child
+      link="Upper_backlink" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Upper_frontlink">
+    <inertial>
+      <origin
+        xyz="0.0463904561233755 -6.26720897400901E-14 7.99429966669152E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.0214124502395769" />
+      <inertia
+        ixx="8.8417413172566E-07"
+        ixy="-2.26124180296804E-17"
+        ixz="3.03487084681567E-17"
+        iyy="2.08029877158262E-05"
+        iyz="4.03015371553792E-22"
+        izz="2.13302876768922E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Upper_frontlink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Upper_frontlink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J6"
+    type="continuous">
+    <origin
+      xyz="0 0.05 -0.005"
+      rpy="-3.1416 0 -2.7921" />
+    <parent
+      link="triangle" />
+    <child
+      link="Upper_frontlink" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Link2">
+    <inertial>
+      <origin
+        xyz="4.44089209850063E-16 0.0186657789906809 0.0247054628952011"
+        rpy="0 0 0" />
+      <mass
+        value="0.0953394410565643" />
+      <inertia
+        ixx="0.000470411650298866"
+        ixy="3.36399135002045E-18"
+        ixz="-2.06366020526793E-21"
+        iyy="3.95014826174653E-06"
+        iyz="-3.0937247350164E-16"
+        izz="0.000472772807876336" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Link2.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Link2.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J7"
+    type="continuous">
+    <origin
+      xyz="-0.10241 0.081825 0.01"
+      rpy="3.1416 0 1.7933" />
+    <parent
+      link="Link1" />
+    <child
+      link="Link2" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <link
+    name="Back_gripper">
+    <inertial>
+      <origin
+        xyz="0.0289971473482062 0.0314301160957162 0.00141734074678128"
+        rpy="0 0 0" />
+      <mass
+        value="1.53802958602338" />
+      <inertia
+        ixx="0.000909413538569684"
+        ixy="8.2653399714243E-05"
+        ixz="-2.76680034671545E-05"
+        iyy="0.000912566548096114"
+        iyz="-4.94357740447193E-05"
+        izz="0.00115501581802408" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Back_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.537254901960784 0.349019607843137 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Back_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J8"
+    type="continuous">
+    <origin
+      xyz="0.026092 -0.14287 0.022327"
+      rpy="3.1416 0 2.2078" />
+    <parent
+      link="Link2" />
+    <child
+      link="Back_gripper" />
+    <axis
+      xyz="0 0 1" />
+  </joint>
+  <link
+    name="Front_gripper">
+    <inertial>
+      <origin
+        xyz="-0.000133634540354588 0.0283220187258271 0.015290063985935"
+        rpy="0 0 0" />
+      <mass
+        value="0.558596679661737" />
+      <inertia
+        ixx="0.000309404274315498"
+        ixy="-3.91459968046766E-05"
+        ixz="3.65468624887358E-06"
+        iyy="0.000256279098899188"
+        iyz="8.07700601429682E-06"
+        izz="0.00046459335100017" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Front_gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.537254901960784 0.349019607843137 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/Front_gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J9"
+    type="revolute">
+    <origin
+      xyz="0 0.01 0"
+      rpy="1.5708 1.5515 -3.1416" />
+    <parent
+      link="Back_gripper" />
+    <child
+      link="Front_gripper" />
+    <axis
+      xyz="3.3649E-05 0 1" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="gripper">
+    <inertial>
+      <origin
+        xyz="0.0309607104904639 -4.59355418676588E-05 0.0171444074906648"
+        rpy="0 0 0" />
+      <mass
+        value="0.0686737389522784" />
+      <inertia
+        ixx="6.40644623542165E-06"
+        ixy="-1.58915253529307E-10"
+        ixz="3.10523081266725E-06"
+        iyy="2.87092893917182E-05"
+        iyz="3.68993537387662E-11"
+        izz="2.25895985442529E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/gripper.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.537254901960784 0.349019607843137 0.337254901960784 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/gripper.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J10"
+    type="revolute">
+    <origin
+      xyz="0.012605 0.027445 -0.003"
+      rpy="0 0 1.7772" />
+    <parent
+      link="Front_gripper" />
+    <child
+      link="gripper" />
+    <axis
+      xyz="0 3.28E-05 -1" />
+    <limit
+      lower="0"
+      upper="6.28"
+      effort="0"
+      velocity="0" />
+  </joint>
+  <link
+    name="lower_frontlink">
+    <inertial>
+      <origin
+        xyz="0.0463904561233882 -6.08957329006898E-14 7.9956874454723E-14"
+        rpy="0 0 0" />
+      <mass
+        value="0.0214124502395769" />
+      <inertia
+        ixx="8.84174131725664E-07"
+        ixy="-2.25680017395088E-17"
+        ixz="3.03403302313668E-17"
+        iyy="2.08029877158262E-05"
+        iyz="9.06223377333586E-23"
+        izz="2.13302876768923E-05" />
+    </inertial>
+    <visual>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/lower_frontlink.STL" />
+      </geometry>
+      <material
+        name="">
+        <color
+          rgba="0.792156862745098 0.819607843137255 0.933333333333333 1" />
+      </material>
+    </visual>
+    <collision>
+      <origin
+        xyz="0 0 0"
+        rpy="0 0 0" />
+      <geometry>
+        <mesh
+          filename="package://beer-arm/meshes/lower_frontlink.STL" />
+      </geometry>
+    </collision>
+  </link>
+  <joint
+    name="J11"
+    type="continuous">
+    <origin
+      xyz="0.039 0.0575 -0.0074928"
+      rpy="3.1416 0 0.62534" />
+    <parent
+      link="Back_gripper" />
+    <child
+      link="lower_frontlink" />
+    <axis
+      xyz="0 0 -1" />
+  </joint>
+  <gazebo>
+    <joint name='J21' type='fixed'>
+      <child>Upper_backlink</child>
+      <parent>Lower_Backlink</parent>
+    </joint>
+    <joint name='J22' type='fixed'>
+      <child>lower_frontlink</child>
+      <parent>Upper_frontlink</parent>
+    </joint>
+  </gazebo>
+</robot>

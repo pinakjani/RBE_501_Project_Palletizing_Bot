@@ -1,0 +1,25 @@
+<launch>
+
+  <!-- Load joint controller configurations from YAML file to parameter server -->
+  <rosparam file="$(find fridge_bot)/fridge_bot_control/config/fridgebot.yaml" command="load"/>
+
+  <!-- load the controllers -->
+
+  <!-- <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/fridge_bot" args="joint_state_controller
+					  joint1_position_controller"/> -->
+
+
+  <node name="controller_spawner" pkg="controller_manager" type="spawner" respawn="false"
+	output="screen" ns="/fridge_bot" args="joint_state_controller
+            joint1_effort_controller
+            joint3_effort_controller
+            joint7_effort_controller"/>
+
+  <!-- convert joint states to TF transforms for rviz, etc -->
+  <node name="robot_state_publisher" pkg="robot_state_publisher" type="robot_state_publisher"
+	respawn="false" output="screen">
+    <remap from="/joint_states" to="/fridge_bot/joint_states" />
+  </node>
+
+</launch>
